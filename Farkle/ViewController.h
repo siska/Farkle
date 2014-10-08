@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DieLabel.h"
 
 @interface ViewController : UIViewController
 
+@property DieLabel *die;
+@property IBOutlet DieLabel *dieLabelOne;
+@property IBOutlet DieLabel *dieLabelTwo;
+@property IBOutlet DieLabel *dieLabelThree;
+@property IBOutlet DieLabel *dieLabelFour;
+@property IBOutlet DieLabel *dieLabelFive;
+@property IBOutlet DieLabel *dieLabelSix;
 
 @end
 

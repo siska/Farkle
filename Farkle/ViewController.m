@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <DieDelegate>
 
 @end
 
@@ -16,26 +16,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.die.delegate = self;
+    self.dieLabelOne.delegate = self;
+    self.dieLabelTwo.delegate = self;
+    self.dieLabelThree.delegate = self;
+    self.dieLabelFour.delegate = self;
+    self.dieLabelFive.delegate = self;
+    self.dieLabelSix.delegate = self;
 }
 
-- (IBAction)onTappedOne:(UITapGestureRecognizer *)sender {
+- (IBAction)onRollButtonPressed:(UIButton *)sender {
+    [self.dieLabelOne roll];
+    [self.dieLabelTwo roll];
+    [self.dieLabelThree roll];
+    [self.dieLabelFour roll];
+    [self.dieLabelFive roll];
+    [self.dieLabelSix roll];
+
 }
 
-- (IBAction)onTappedTwo:(UITapGestureRecognizer *)sender {
-}
 
-- (IBAction)onTappedThree:(UITapGestureRecognizer *)sender {
-}
 
-- (IBAction)onTappedFour:(UITapGestureRecognizer *)sender {
-}
+#pragma mark - DieDelegate Methods
 
-- (IBAction)onTappedFive:(UITapGestureRecognizer *)sender {
+- (void)dieRollWithValue:(int)value
+{
+    
 }
-
-- (IBAction)onTappedSix:(UITapGestureRecognizer *)sender {
-}
-
 
 @end

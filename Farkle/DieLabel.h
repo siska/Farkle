@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DieLabel : UILabel
+@protocol DieDelegate // do I need this-> <NSObject>
+- (void)dieRollWithValue:(int)value;
+@end
 
+@interface DieLabel : UILabel
+- (void) roll;
+@property id <DieDelegate> delegate;
 @end
