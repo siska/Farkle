@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <DieDelegate>
+@interface ViewController () <DieDelegate, DieLabelDelegate>
 
 @end
 
@@ -24,25 +24,30 @@
     self.dieLabelFour.delegate = self;
     self.dieLabelFive.delegate = self;
     self.dieLabelSix.delegate = self;
+
+    self.diceArray = [[NSMutableArray alloc] initWithObjects:self.dieLabelOne, self.dieLabelTwo, self.dieLabelThree, self.dieLabelFour, self.dieLabelFive, self.dieLabelSix, nil];
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)sender {
-    [self.dieLabelOne roll];
-    [self.dieLabelTwo roll];
-    [self.dieLabelThree roll];
-    [self.dieLabelFour roll];
-    [self.dieLabelFive roll];
-    [self.dieLabelSix roll];
-
+    for (DieLabel *label in self.diceArray) {
+        [label roll];
+    } //important use of forin loop
 }
 
 
 
 #pragma mark - DieDelegate Methods
 
-- (void)dieRollWithValue:(int)value
+- (void)dieRollWithValue:(DieLabel *)sender
 {
-    
+    [self.diceArray removeObject:sender];
+    [self.dice addObject:sender];
+    sender.backgroundColor = [UIColor redColor];
+}
+
+- (void)removeDieLabelFromDiceArray:(UILabel *)label
+{
+//not using this
 }
 
 @end

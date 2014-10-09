@@ -18,6 +18,8 @@
 @property IBOutlet DieLabel *dieLabelFour;
 @property IBOutlet DieLabel *dieLabelFive;
 @property IBOutlet DieLabel *dieLabelSix;
+@property NSMutableArray *diceArray;
+@property NSMutableArray *dice;
 
 @end
 

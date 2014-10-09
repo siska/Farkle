@@ -13,13 +13,13 @@
 - (void) roll
 {
     int randomNumber = arc4random_uniform(6)+1;
-    [self.delegate dieRollWithValue:randomNumber];
+    //[self.delegate dieRollWithValue:randomNumber];
     self.text = @(randomNumber).description;
 }
 
 -(IBAction)onTapped:(UITapGestureRecognizer *)sender
 {
-    [self roll];
+    [self.delegate dieRollWithValue:self];
 }
 
 
